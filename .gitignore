@@ -1,0 +1,14 @@
+# Dependencies - restored from package-lock.json, never committed
+node_modules/
+
+# Build output - produced by `npm run build`, never committed
+dist/
+dist-ssr/
+
+# Logs and local overrides
+*.log
+npm-debug.log*
+*.local
+
+# OS noise
+.DS_Store

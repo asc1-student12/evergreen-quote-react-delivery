@@ -4,7 +4,10 @@
 
 ## Goal
 
-> _One sentence here._
+> By Thursday end of day, the assembled Evergreen Quote React app — live typed
+> estimate, data feed with visible loading and error states, hook and context
+> wired — is merged to main through a reviewed pull request with a green CI run,
+> with type-check and production build both passing.
 
 ## "Done" looks like
 
@@ -17,4 +20,5 @@
 
 ## Out of scope (this week)
 
-- _What you are intentionally not doing._
+- No rate-engine work, no accounts or persistence, no deployment, no test suite.
+- No toolchain upgrades mid-week.

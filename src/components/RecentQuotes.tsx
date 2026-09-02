@@ -1,41 +1,13 @@
 // RecentQuotes.tsx (provided - Day 3, REPLACES src/components/RecentQuotes.tsx)
-// The list no longer arrives through props. This version fetches it from the
-// data feed with the standard React pattern: useEffect to fetch on mount,
-// three states (loading / error / success), and an AbortController to cancel
-// the request if the component unmounts first. You drop it in; you don't
-// modify it.
-import { useEffect, useState } from "react";
+// The list now reads from context: no props, no fetch of its own. The
+// loading / error / success states still show; they just come from the
+// provider, which owns the data. Saved quotes appear at the top instantly.
+// You drop it in; you don't modify it.
 import { formatCurrency } from "../premium";
-import type { Quote } from "../types";
+import { useQuotes } from "../context/QuotesContext";
 
 function RecentQuotes() {
-  const [quotes, setQuotes] = useState<Quote[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    async function loadQuotes() {
-      try {
-        setLoading(true);
-        setError(null);
-        const res = await fetch("/quotes.json", { signal: controller.signal });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data: Quote[] = await res.json();
-        setQuotes(data);
-      } catch (err) {
-        if (err instanceof Error && err.name !== "AbortError") {
-          setError("Could not load recent quotes.");
-        }
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadQuotes();
-    return () => controller.abort(); // cleanup: cancel if unmounted
-  }, []);
+  const { quotes, loading, error } = useQuotes();
 
   return (
     <aside className="recent-quotes">

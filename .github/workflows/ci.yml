@@ -32,3 +32,6 @@ jobs:
 
       - name: Production build
         run: npm run build
+        
+      - name: Greeting
+        run: echo "Evergreen Quote CI run by ${{ github.actor }}"

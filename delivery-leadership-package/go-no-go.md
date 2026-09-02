@@ -47,3 +47,11 @@ if the absurd-premium report turns out to be caused by the hotfix rather than by
 the known uncapped coverage factor, because then the rate model is being changed
 under an open incident and I would want the sponsor to decide whether this week's
 work merges at all before that is settled.
+
+## Thursday 10:00 re-evaluation
+
+Condition satisfied. The type-check on `main` is green as of Thursday morning, so
+the single blocker named yesterday is cleared and the conditional GO becomes an
+unconditional one. Proceeding to open the PR, self-review, and merge. Noting for
+the record that I did not merge onto a red base at any point, and that the
+decision to hold was reversed by evidence rather than by the deadline arriving.

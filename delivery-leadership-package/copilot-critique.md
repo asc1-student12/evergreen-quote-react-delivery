@@ -38,8 +38,7 @@ credibility problem independent of which number is right.
 
 No, and I tested this rather than assuming it. I changed one row's monthlyPremium
 from a number to the string "60.00" and ran the pipeline: npm run type-check
-passed, npm run build passed, CI would have gone green, and the browser rendered a
-broken value to the customer. TypeScript validates source files; quotes.json is
+passed, npm run build passed, CI would have gone green, and the browser rendered the value without currency formatting to the customer. TypeScript validates source files; quotes.json is
 data fetched over the network at runtime and the compiler never opens it. The
 contracts stop at the network boundary. The engineering team already knew this:
 premium.ts contains a fallback rate that is unreachable for any valid coverage
